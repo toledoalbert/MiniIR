@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
   <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-  <link href="css/pchute.css" rel="stylesheet" media="screen">
+  <link href="css/custom.css" rel="stylesheet" media="screen">
 
 </head>
 <body>
@@ -15,8 +15,7 @@
       <div class="row">
         <div class="span12">
           <form method="get" action="results.php" class="form-inline" >
-            <input name="salary" class="span5 mainIn" type="text"  placeholder="$ Enter Salary" >
-            <input name="zip" class="span5 mainIn" type="text"  placeholder="Enter Zip Code">
+            <input name="salary" class="span5 mainIn" type="text"  placeholder="Search" >
             <button type="submit" class="btn btn-cstm mainIn" value="Go!"> <i class="icon-search icon-white"></i> Go!</button>
           </form>
         </div>
