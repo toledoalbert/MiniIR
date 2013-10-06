@@ -1,7 +1,17 @@
 <?php 
 
-	//xml parser
-	//load the topics.xml file
+//connection
+$con = mysql_connect("localhost","root","root");
+
+//check if connection successful
+if (!$con)
+{
+	//if not output error and die
+	die('Could not connect: ' . mysql_error());
+}
+
+//select the db
+mysql_select_db("miniIR", $con);
 
 if (file_exists('topics.xml')) {
 	$xml = simplexml_load_file('topics.xml');
