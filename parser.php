@@ -2,7 +2,18 @@
 
 	//xml parser
 	//load the topics.xml file
-	$xml simplexml_load_file('topics.xml');
+
+if (file_exists('topics.xml')) {
+	$xml = simplexml_load_file('topics.xml');
+
+	print_r($xml);
+	print_r($xml->top);
+
+} else {
+	exit('Failed to open person.xml.');
+}
+
+echo $xml->top->desc;
 
 
 	//echo $xml;
