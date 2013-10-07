@@ -23,10 +23,10 @@ if (file_exists('topics.xml')) {
 	for($i = 0; $i < 50; $i++){
 
 		//parse and get the info
-		$num = $xml->top[$i]->num;
-		$title = $xml->top[$i]->title;
-		$desc = $xml->top[$i]->desc;
-		$narr = $xml->top[$i]->narr;
+		$num = mysql_real_escape_string($xml->top[$i]->num);
+		$title = mysql_real_escape_string($xml->top[$i]->title);
+		$desc = mysql_real_escape_string($xml->top[$i]->desc);
+		$narr = mysql_real_escape_string($xml->top[$i]->narr);
 
 		//create sql query
 		$sql = "INSERT INTO docs (num, title, description, narrative) VALUES ('$num', '$title', '$desc', '$narr')";
@@ -52,14 +52,5 @@ if (file_exists('topics.xml')) {
 
 
 
-
-	//echo $xml;
-	//$xml = simplexml_load_string('topics.xml');
-	//print_r($xml);
-	//$num = 'dasdasddasdasd';
-	//echo $xml->top[1];
-	//echo $num;
-	//echo $xml->top[0]->desc;
-	//echo "dasdas";
 
 ?>
