@@ -28,6 +28,12 @@ if (file_exists('topics.xml')) {
 		$desc = mysql_real_escape_string($xml->top[$i]->desc);
 		$narr = mysql_real_escape_string($xml->top[$i]->narr);
 
+		//divide strings by : to get rid of the entry word
+		$num = substr($num,strpos($num,":")+1);
+		$title = substr($title,strpos($title,":")+1);
+		$desc = substr($desc,strpos($desc,":")+1);
+		$narr = substr($narr,strpos($narr,":")+1);
+
 		//create sql query
 		$sql = "INSERT INTO docs (num, title, description, narrative) VALUES ('$num', '$title', '$desc', '$narr')";
 
