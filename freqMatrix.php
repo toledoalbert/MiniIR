@@ -33,11 +33,11 @@ for($i = 351; $i < 401; $i++){
 
 	//put all the words in an array
 	$all = explode(" ", $all);
-
+	print_r($all); echo "</br></br></br>";
 	//load list of common words
- 	$stopwords = file('stopwords.txt');
+ 	$stopwords = file('stopwords.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
  	//$stopwords = array('is', "the");
-
+ 	print_r($stopwords); echo "</br></br></br>";
 	/*remove every word from array if it is a stopword
 	foreach( $all as $key => $val ) {
 
@@ -51,7 +51,7 @@ for($i = 351; $i < 401; $i++){
 
 	//remove the stop words from the array of words
 	$pure = array_diff($all, $stopwords);
-
+	print_r($pure); echo "</br></br></br>";
 	//print_r($pure);
 
 	//echo implode(" ", $pure);
@@ -69,21 +69,33 @@ for($i = 351; $i < 401; $i++){
 	//for each word insert a row
 	foreach($counts as $key => $val){
 
-		addslashes($key);
-		addslashes($val);
+		//addslashes($key);
+		//addslashes($val);
 
+		$key = trim($key, ",./?!'\)\(:;-*^$%#@!\"=+/");
+		$key = trim($key);
+		$val = strval($val);
+
+		if(in_array($key, $stopwords)){
+			echo $key."</br>";
+		}
+
+		if($key != ""){
 		//query to insert the info
-		$query = "INSERT INTO freq (word, '$i') VALUES ('$key', '$val')";
+		$query = "INSERT INTO freq (word) VALUES ('$key')";
+		}
 
 		//run the query
-		$result = mysql_query($con, $query);
+		$result = mysql_query($query, $con);
 
-		//if($result){ echo "success";}else{echo mysql_error();}
+		//print_r($result);
+
+		if($result){ echo "success";}else{echo mysql_error()."</br>";}
 
 		//echo "</br></br>";
 
 	}
-
+	
 }
 
 //
