@@ -31,30 +31,18 @@ for($i = 351; $i < 401; $i++){
 	//trim the string
 	$all = trim($all);
 
+	$all = strtolower($all);
+
 	//put all the words in an array
-	$all = explode(" ", $all);
-	print_r($all); echo "</br></br></br>";
+	//$all = explode(" ", $all);
+
+	$all = preg_split("/[\s,\/.-_]+/", $all);
+	
 	//load list of common words
  	$stopwords = file('stopwords.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
- 	//$stopwords = array('is', "the");
- 	print_r($stopwords); echo "</br></br></br>";
-	/*remove every word from array if it is a stopword
-	foreach( $all as $key => $val ) {
-
-		//trim the word before matching
-		$val = trim($val);
-
-		if( in_array($val, $stopwords) ) {
-			unset($all[$key]);    
-		}
-	}*/
 
 	//remove the stop words from the array of words
 	$pure = array_diff($all, $stopwords);
-	print_r($pure); echo "</br></br></br>";
-	//print_r($pure);
-
-	//echo implode(" ", $pure);
 
 	//add a new column for each document
 	$query = "ALTER TABLE  `freq` ADD  `$i` VARCHAR( 255 ) NOT NULL";
@@ -64,35 +52,29 @@ for($i = 351; $i < 401; $i++){
 	//count the occurances of the words in the document
 	$counts = array_count_values($pure);
 
-	//print_r($counts); 
+	print_r($counts);
 
 	//for each word insert a row
 	foreach($counts as $key => $val){
-
-		//addslashes($key);
-		//addslashes($val);
 
 		$key = trim($key, ",./?!'\)\(:;-*^$%#@!\"=+/");
 		$key = trim($key);
 		$val = strval($val);
 
-		if(in_array($key, $stopwords)){
-			echo $key."</br>";
-		}
-
 		if($key != ""){
 		//query to insert the info
-		$query = "INSERT INTO freq (word) VALUES ('$key')";
+		$query = "INSERT INTO freq (word, `$i`) VALUES ('$key', '$val')";
+		echo "</br>".$query;
 		}
 
 		//run the query
 		$result = mysql_query($query, $con);
 
-		//print_r($result);
-
-		if($result){ echo "success";}else{echo mysql_error()."</br>";}
-
-		//echo "</br></br>";
+		if($result){ 
+			echo "success";
+		}else{
+			echo mysql_error()."</br>";
+		} 
 
 	}
 	
