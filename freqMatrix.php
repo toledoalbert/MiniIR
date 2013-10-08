@@ -13,8 +13,6 @@ if (!$con)
 //select the db
 mysql_select_db("miniIR", $con);
 
-echo 'entering the loop</br>';
-
 //get the articles from the docs table
 for($i = 351; $i < 401; $i++){
 
