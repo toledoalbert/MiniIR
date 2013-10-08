@@ -26,9 +26,20 @@ for($i = 351; $i < 401; $i++){
 	$row = mysql_fetch_array($result);
 
 	//put all the fields together to one big string
-	$all = $row['title'] + " " + $row['description'] + " " + $row['narrative'];
+	$all = $row['title']. " " . $row['description'] . " " . $row['narrative'];
 
+	//put all the words in an array
+	$all = explode(" ", $all);
 
+	//remove every word from array if it is a stopword
+	foreach( $all as $key => $val ) {
+
+        if( in_array($val, $stopwords) ) {
+            unset($all[$key]);    
+        }
+    }
+
+    //add a new a column with doc number and 
 
 }
 
