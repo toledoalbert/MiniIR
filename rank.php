@@ -1,5 +1,7 @@
 <?php
 
+
+
 //connection
 $con = mysql_connect("localhost","root","root");
 
@@ -52,6 +54,52 @@ while($row = mysql_fetch_array($result)){
 	}
 
 }
+
+
+function dotp($arr1, $arr2){
+     return array_sum(array_map(create_function('$a, $b', 'return $a * $b;'), $arr1, $arr2));
+}
+
+//$similarity=dotp($id1,$id2)/sqrt(dotp($id1,$id1)*dotp($id2,$id2));
+
+function cosSim($arr1, $arr2){
+	$similarity = dotp($arr1,$arr2)/sqrt(dotp($arr1,$arr1)*dotp($arr2,$iarr2));
+	return $similarity;
+}
+
+//Arrays that we will need
+//$frequency = array(); //two dimensional
+$rankings = array(); //one dimensional
+$col = array();	//one dimensional
+
+for($i = 351; $i < 401; $i++){
+
+	//number of tables
+	$sql = "SELECT * FROM freq";
+	$result = mysql_query($sql);
+
+	while($row = mysql_fetch_array($result)){
+
+		$word = $row['word'];
+
+		$fr = $row[$i];
+
+		$col[$word] = $fr;
+
+	}
+
+	include("vendor/autoloader.php");
+
+	use NlpTools\Similarity\CosineSimilarity;
+
+	$sim = new CosineSimilarity();
+
+	$sim = $sim->similarity($vector, $col);
+
+	echo $i . ": " . $sim . "</br>";
+
+}
+
 
 
 
