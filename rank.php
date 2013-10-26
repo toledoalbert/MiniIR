@@ -35,7 +35,7 @@ while($row = mysql_fetch_array($result)){
 	
 	$vector[$word] = 0;
 
-	for($i = 0; $i < $loop; $i++){
+	for($i = 0; $i < count($query); $i++){
 
 		if($word == $query[$i]){	
 
@@ -67,7 +67,7 @@ function cosSim($arr1, $arr2){
 	return $similarity;
 }*/
 
-function similarity($A, $B)
+/*function similarity($A, $B)
 {
     // This means they are simple text vectors
     // so we need to count to make them vectors
@@ -97,7 +97,7 @@ function similarity($A, $B)
 	$v2_norm = sqrt($v2_norm);
 
 	return $prod/($v1_norm*$v2_norm);
-}
+}*/
 
 //Arrays that we will need
 //$frequency = array(); //two dimensional
@@ -123,15 +123,20 @@ for($i = 351; $i < 401; $i++){
 	//$dot = 0;
 
 	if(count($vector === count($col))){
-		foreach(array_combine($vector, $col) as $vec => $column)){
-			//$dot += $vec*$column;
+		/*foreach(array_combine($vector, $col) as $vec => $column){
+			$dot += $vec*$column;
+			echo $vec . "*" . $column . " = " . $dot . "</br>";
+		}*/
+
+		foreach($col as $key => $value){
+			$dot += $value * $vector[$key]; 
+			//echo $value . "*" . $vector[$key] . " = " . $dot . "</br>";
 		}
+
 	}
 
-	//$sim = similarity($vector, $col);
 
 	echo $i . ": " . $dot . "</br>";
-
 }
 
 
