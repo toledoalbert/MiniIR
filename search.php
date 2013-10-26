@@ -15,7 +15,7 @@
       <div class="row">
         <div class="span12">
           <form method="get" action="results.php" class="form-inline" >
-            <input name="salary" class="span5 mainIn" type="text"  placeholder="Search" >
+            <input name="query" class="span5 mainIn" type="text"  placeholder="Search">
             <button type="submit" class="btn btn-cstm mainIn" value="Go!"> <i class="icon-search icon-white"></i> Go!</button>
           </form>
         </div>

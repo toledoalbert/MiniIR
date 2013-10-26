@@ -9,6 +9,34 @@ a{
 	text-decoration: none !important;
 }
 
+#topbar{
+	background: rgb(228, 228, 228);
+	padding: 2px;
+	height: 40px;
+}
+
+#topquery{
+	width: 80%;
+	margin-left: 30px;
+	margin-top: 4px;
+	color: orange;
+}
+
+#titles ul {
+	list-style: none;
+}
+
+#results{
+	margin-top: 30px;
+}
+
+#results .title {
+font-size: 20px;
+color: #4C90E7;
+text-decoration: underline;
+cursor: pointer;
+}
+
 .brandName{
 	margin-top: 15%;
 }

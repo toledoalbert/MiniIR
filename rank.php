@@ -14,7 +14,7 @@ if (!$con)
 mysql_select_db("miniIR", $con);
 
 //query
-$query = "aboard anticipated abuse abuse";
+//$query = "aboard anticipated abuse abuse";
 
 $query = explode(" ", $query);
 
@@ -109,10 +109,5 @@ for($i = 351; $i < 401; $i++){
 }
 
 arsort($rankings);
-
-print_r($rankings);
-
-
-
 
 ?>
