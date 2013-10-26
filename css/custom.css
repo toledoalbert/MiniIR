@@ -31,10 +31,24 @@ a{
 }
 
 #results .title {
-font-size: 20px;
-color: #4C90E7;
-text-decoration: underline;
-cursor: pointer;
+	font-size: 20px;
+	color: #4C90E7;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#results li:hover{
+	border: 1px solid rgb(219, 219, 219);
+	margin: 10px;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+#results li{
+	border: 1px solid rgb(243, 243, 243);
+	margin: 10px;
+	padding: 10px;
+	border-radius: 3px;
 }
 
 .brandName{
@@ -158,22 +172,22 @@ input.mainIn{
 }
 
 .results h3 {
-font-weight: lighter;
-color: white;
-background: #000;
+	font-weight: lighter;
+	color: white;
+	background: #000;
 }
 
 
 
 @media (min-width: 768px){
 	.home img{
-	width: auto;
-	height: 130px;
+		width: auto;
+		height: 130px;
 	}
 
 	.rent img{
-	width: auto;
-	height: 130px;
+		width: auto;
+		height: 130px;
 	}
 
 
@@ -222,8 +236,8 @@ background: #000;
 	}
 
 	h1.price{
-	font-size: 60px;
-}
+		font-size: 60px;
+	}
 	
 }
 

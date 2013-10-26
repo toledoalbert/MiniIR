@@ -66,7 +66,7 @@ mysql_select_db("miniIR", $con);
 	<div class="container">
 
 		<div class="row" id="results">
-			<div id="titles" class="span3">
+			<div id="titles" class="span5">
 				<ul>
 					<?php 
 					foreach($rankings as $key => $val){
@@ -92,11 +92,23 @@ mysql_select_db("miniIR", $con);
 					} ?>
 
 
-</ul>
-</div>
-</div>
+				</ul>
+			</div>
 
-</div>
+			<div class="span7" id="preview">
+				
+				<h1>Title</h1>
+				<h4>Description of the document will be inserted in this area.</h4>
+				<p>Any document discussing petroleum exploration in the
+					South Atlantic near the Falkland Islands is considered
+					relevant.  Documents discussing petroleum exploration in 
+					continental South America are not relevant.</p>
+
+			</div>
+
+		</div>
+
+	</div>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
