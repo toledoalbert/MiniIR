@@ -135,9 +135,28 @@ for($i = 351; $i < 401; $i++){
 
 	}
 
+	foreach($col as $val){
+		$colMag += pow($val, 2);
+	}
 
-	echo $i . ": " . $dot . "</br>";
+	$colMag = sqrt($colMag);
+
+	foreach($vector as $val){
+		$vecMag += pow($val, 2);
+	}
+
+	$vecMag = sqrt($vecMag);
+
+	$cos = $dot/($vecMag*$colMag);
+
+	$rankings[$i] = $cos;
+
+	//echo $i . ": " . $cos . "</br>";
 }
+
+arsort($rankings);
+
+print_r($rankings);
 
 
 
