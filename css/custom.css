@@ -13,10 +13,16 @@ a{
 	background: rgb(228, 228, 228);
 	padding: 2px;
 	height: 40px;
+	width: 100%;
+	position: fixed;
+}
+
+.container{
+	padding-top: 30px !important;
 }
 
 #topquery{
-	width: 80%;
+	width: 90%;
 	margin-left: 30px;
 	margin-top: 4px;
 	color: orange;
@@ -49,6 +55,11 @@ a{
 	margin: 10px;
 	padding: 10px;
 	border-radius: 3px;
+}
+
+#preview {
+position: fixed;
+right: 10px;
 }
 
 .brandName{
