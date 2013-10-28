@@ -7,49 +7,18 @@
   <link href="css/bootstrap.css" rel="stylesheet" media="screen">
   <link href="css/custom.css" rel="stylesheet" media="screen">
 
-  <style>
-  
-    .docTitle{
-      padding: 5px;
-      background-color: grey;
-      font-size: 15px;
-      list-style: none;
-      color: white;
-      cursor: pointer;
-    }
-
-    .docTitle a{
-      color: white;
-    }
-
-    .docTitle:hover{
-      background-color: black;
-    }
-
-    .container{
-      padding: 20px;
-    }
-  
-  </style>
-
 </head>
-<body>
+<body style="background: url(img/hamptonu.jpg); background-width: 30px; background-height: auto;">
   <div class="container">
-    
-    <div class="row">
-      <div class="span3">
-        <ul>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-          <li class="docTitle"> <a href="#"> Document Title </a> </li>
-        </ul>
+    <div class="text-center brandName"> 
+      <h1><b>Mini</b>IR</h1>
+      <div class="row">
+        <div class="span12">
+          <form method="get" action="results.php" class="form-inline" >
+            <input name="query" class="span5 mainIn" type="text"  placeholder="Search">
+            <button type="submit" class="btn btn-cstm mainIn" value="Go!"> <i class="icon-search icon-white"></i> Go!</button>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -57,6 +26,11 @@
 
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-
+  <script>
+  /*$( document ).ready(function() {
+    var images = ['.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg'];
+    $('body').css({'background-image': 'url(img/background' + images[Math.floor(Math.random() * images.length)] + ')'});
+  });*/
+  </script>
 </body>
 </html>
