@@ -62,6 +62,18 @@ position: fixed;
 right: 10px;
 }
 
+#preview h1{
+	margin: 20px;
+}
+
+#preview h4{
+	margin: 20px;
+}
+
+#preview p{
+	margin: 20px;
+}
+
 .brandName{
 	margin-top: 15%;
 }

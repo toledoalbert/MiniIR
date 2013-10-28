@@ -85,7 +85,14 @@ mysql_select_db("miniIR", $con);
     						//put all the fields together to one big string
 							$all = $row['title'];// + " " + $row['description'] + " " + $row['narrative'];
 
-							echo '<li> <p class="title">'.$row["title"].'</p> <p class="description">'.$row["description"].'</p> </li>';
+							$title = $row["title"];
+							$description = $row["description"];
+							$narrative = $row["narrative"];
+
+							$id = preg_replace('/\s+/', '', $title);
+
+							echo '<li id="'. $id .'" class="item"> <p class="title">'. $title .'</p> <p class="description">'.$description.'</p> ';
+							echo '<p class="narrative" style="display:none;">'. $narrative .'</p> </li>';
 
 						}
 
@@ -97,20 +104,36 @@ mysql_select_db("miniIR", $con);
 
 			<div class="span7" id="preview">
 				
-				<h1>Title</h1>
-				<h4>Description of the document will be inserted in this area.</h4>
-				<p>Any document discussing petroleum exploration in the
-					South Atlantic near the Falkland Islands is considered
-					relevant.  Documents discussing petroleum exploration in 
-					continental South America are not relevant.</p>
+				<h1></h1>
+				<h4></h4>
+				<p>Click a result to preview the document here.</p>
 
 			</div>
 
 		</div>
 
 	</div>
-
 <script src="js/jquery.min.js"></script>
+<script>
+	
+	$( document ).ready(function() {
+    	
+		
+		$( ".item" ).click(function() {
+  			var id = $.trim($(this).attr('id'));
+  			var title = $("#" + id + " p.title").text();
+  			var desc = $("#" + id + " p.description").text();
+  			var narr = $("#" + id + " p.narrative").text();
+  			$("#preview h1").text(title);
+  			$("#preview h4").text(desc);
+  			$("#preview p").text(narr);
+
+		});
+	
+
+	});
+
+</script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
